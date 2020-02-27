@@ -26,6 +26,10 @@ app.get("/favicon.ico", function(req, res) {
   res.status(404).send()
 });
 
+app.get("*", (req, res) => {
+  res.send('not found',404);
+})
+
 app.post("/api/notes", function (req, res) {
 
   fs.readFile('db/db.json', 'utf-8', function(err, data){
@@ -72,3 +76,4 @@ app.get("*", (req, res) => {
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
 });
+
