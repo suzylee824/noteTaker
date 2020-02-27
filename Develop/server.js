@@ -20,7 +20,6 @@ app.get("/", function(req, res) {
 
 app.get("/notes", function(req, res) {
   res.sendFile(path.join(__dirname, "/public/notes.html"));
-  console.log("notes")
 });
 
 app.get("/api/notes", function(req, res) {
@@ -44,14 +43,14 @@ app.post("/api/notes", function (req, res) {
 });
 
 //save editted note
-app.post("/api/notes/:id", function (req, res) {
-  fs.readFile("db/db.json", "utf-8", function(err, data) {
-    const db = JSON.parse(data);
-    db.splice(title, 2)
+// app.post("/api/notes/:id", function (req, res) {
+//   fs.readFile("db/db.json", "utf-8", function(err, data) {
+//     const db = JSON.parse(data);
+//     db.splice(title, 2)
 
-    fs.writeFile("db/db.json", JSON.stringify)
-  });
-});
+//     fs.writeFile("db/db.json", JSON.stringify)
+//   });
+// });
 
 
 app.delete("/api/notes/:id", function (req, res) {
