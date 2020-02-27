@@ -22,6 +22,12 @@ app.get("/notes", function(req, res) {
   res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
+app.get("/api/notes", function(req, res) {
+  fs.readFile("./db/db.json", "UTF8", (err, data) => {
+      res.send(data)
+  });
+});
+
 app.get("/favicon.ico", function(req, res) {
   res.status(404).send()
 });
