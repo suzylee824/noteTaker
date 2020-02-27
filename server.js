@@ -14,18 +14,16 @@ app.use(express.static("public"));
 
 
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
 
 app.get("/notes", function(req, res) {
-  res.sendFile(path.join(__dirname, "notes.html"));
+  res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
-app.get("/api/notes", function(req, res) {
-  fs.readFile("./db/db.json", "UTF8", (err, data) => {
-      res.send(data)
-  });
+app.get("/favicon.ico", function(req, res) {
+  res.status(404).send()
 });
 
 app.post("/api/notes", function (req, res) {
